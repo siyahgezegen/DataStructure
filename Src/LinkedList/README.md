@@ -60,6 +60,8 @@ Linked listteki 1. eleman hafızada 384F noktasında bulunurken
 Linked listteki 2. eleman hafızada 85D2 noktasında bulunabilir.
 
 Linked Listlerde ; 
+
+    
     Eleman ekleme Karmaşıklığı O(1)
     Başa eleman Ekleme Karmaşıklığı O(1)
     Kuyruğa eleman Ekleme Karmaşıklığı O(1)
