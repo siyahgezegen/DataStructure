@@ -1,4 +1,4 @@
-package VeriYapilari.Model;
+package VeriYapilari.DataStructure.Src.Model;
 
 public class Student {
     public int content;

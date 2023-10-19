@@ -1,2 +1,3 @@
-# Data-Structure
-Data Structure Lecture Notes
+# Data-Structure - Veri Yapıları
+## TR : 
+

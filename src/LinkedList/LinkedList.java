@@ -1,6 +1,6 @@
-package VeriYapilari.LinkedList;
+package VeriYapilari.DataStructure.Src.LinkedList;
 
-import VeriYapilari.Model.Student;
+import VeriYapilari.DataStructure.Src.Model.Student;
 
 public class LinkedList {
     public Student head;
