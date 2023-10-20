@@ -12,6 +12,37 @@ public class LinkedList {
     }
 
     /**
+     * integer bir değer döndürür.
+     *
+     * -2 = liste bos
+     * 
+     * -1 = aranan indis listede yok
+     * 
+     * -1 ya da -2 den farklı bir değer dönerse o değer elemanın contentidir.
+     * 
+     * @param indis : Aranan Elemanın indis numarası. 
+     */
+
+    public int GetElementInList(int indis) {
+        if (head == null)
+            return -2;
+        else {
+            int i = 0;
+            Student since = head;
+            while (since != null) {
+                if (i == indis) {
+                    return since.content;
+                }
+                i++;
+                since = since.next;
+            }
+        }
+        return -1;
+
+    }
+
+    /**
+     * 
      * Liste içerisindeki tüm elemanları yazdırır.
      */
 
