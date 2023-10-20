@@ -2,6 +2,17 @@
 ```
 LinkedList list_name = new LinkedList();
 ```
+
+## Show All List Element
+```
+LinkedList list_name = new LinkedList();
+list_name.GetList();
+```
+## Get Element In List
+```
+LinkedList list_name = new LinkedList();
+list_name.GetElementInList();
+```
 ## Add Element In Head 
 ```
 LinkedList list_name = new LinkedList();
@@ -13,13 +24,13 @@ LinkedList list_name = new LinkedList();
 list_name.AddElementInTail(Student());
 ```
 
-## Remove Element In Tail
+## Delete Element In Tail
 ```
 LinkedList list_name = new LinkedList();
 list_name.DeleteElementInTail();
 ```
 
-## Add Element In Head
+## Delete Element In Head
 ```
 LinkedList list_name = new LinkedList();
 list_name.DeleteElementInHead();
