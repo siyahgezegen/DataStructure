@@ -20,7 +20,7 @@ public class LinkedList {
      * 
      * -1 ya da -2 den farklı bir değer dönerse o değer elemanın contentidir.
      * 
-     * @param indis : Aranan Elemanın indis numarası. 
+     * @param indis : Aranan Elemanın indis numarası.
      */
 
     public int GetElementInList(int indis) {
@@ -111,6 +111,26 @@ public class LinkedList {
         }
         since.next = null;
         tail = since;
+    }
+
+    /**
+     * Araya Eleman ekleme işlemi.
+     * eğer eleman listenin sonundaysa AddElementInTail fonksiyonu çağrılıyor.
+     * @param newStudent : Yeni Eklenecek olan Student Elemanı
+     * @param oldStudent : Belirtilen elemanın referansına ekler.
+     */
+    public void AddElementInBetween(Student newStudent, Student oldStudent) {
+        if (head == null) {
+            System.out.println("List Is Empty");
+        } else {
+            if (oldStudent.next == null) {
+                AddElementInTail(newStudent);
+            } else {
+                newStudent.next = oldStudent.next;
+                oldStudent.next = newStudent;
+            }
+
+        }
     }
 
     /**

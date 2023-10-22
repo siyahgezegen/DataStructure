@@ -23,7 +23,11 @@ list_name.AddElementInHead(Student());
 LinkedList list_name = new LinkedList();
 list_name.AddElementInTail(Student());
 ```
-
+## Add Element In Between
+```
+LinkedList list_name = new LinkedList();
+list_name.AddElementInBetween(Student(),Student());
+```
 ## Delete Element In Tail
 ```
 LinkedList list_name = new LinkedList();
