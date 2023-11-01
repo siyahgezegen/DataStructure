@@ -1,9 +1,11 @@
 package Src.LLexam;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import Src.LinkedList.LinkedList;
 import Src.Model.Student;
@@ -11,6 +13,8 @@ import Src.Model.Student;
 public class MyTestWindow extends JFrame {
 
     public LinkedList linkedList = new LinkedList();
+
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -22,12 +26,11 @@ public class MyTestWindow extends JFrame {
 
     public MyTestWindow() {
         initComponents();
-
     }
 
     public void initComponents() {
         setTitle("Linked List Düzenleme");
-
+        jLabel1 = new javax.swing.JLabel("Sayı Giriniz");
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -35,6 +38,7 @@ public class MyTestWindow extends JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+
         list1 = new java.awt.List();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,7 +59,14 @@ public class MyTestWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                linkedList.AddElementInHead(new Student(Integer.parseInt(jTextField1.getText())));
+                String data = jTextField1.getText();
+                String[] datas = data.split(",");
+                if (datas.length > 1) {
+                    for (int i = 0; i < datas.length; i++) {
+                        linkedList.AddElementInHead(new Student(Integer.parseInt(datas[i])));
+                    }
+                } else
+                    linkedList.AddElementInHead(new Student(Integer.parseInt(data)));
                 jTextField1.setText("");
                 AddList();
             }
@@ -85,10 +96,23 @@ public class MyTestWindow extends JFrame {
                 AddList();
             }
         });
-
+        jButton5.setToolTipText(
+                "<html>" +
+                        "Girdileri ',(Virgül)' ile ayırınız" +
+                        "<br>+" +
+                        "1. girdi yeni eklenecek öğe 2. girdi hangi öğeden sonra geleceği" +
+                        "</html>");
         jButton5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                String data = jTextField1.getText();
+                String[] datas = data.split(",");
+                int st1 = Integer.parseInt(datas[0]);
+                int st2 = Integer.parseInt(datas[1]);
+                linkedList.AddElementInBetween(new Student(st1), new Student(st2));
+                jTextField1.setText("");
+                AddList();
                 // linkedList.AddElementInBetween(null, null);
             }
         });
@@ -109,6 +133,8 @@ public class MyTestWindow extends JFrame {
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addGap(50, 50, 50)
                                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 138,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
@@ -144,6 +170,7 @@ public class MyTestWindow extends JFrame {
                         .addGroup(layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
                                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,7 +188,7 @@ public class MyTestWindow extends JFrame {
                                 .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 217,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(193, Short.MAX_VALUE)));
-
+        getContentPane().setBackground(new Color(155, 190, 200));
         pack();
     }
 

@@ -1,5 +1,8 @@
-package VeriYapilari.DataStructure.Src.Model;
+package Src.Model;
 
+/**
+ * @author ÖmerKaraman
+ */
 public class Student {
     public int content;
     public Student next;

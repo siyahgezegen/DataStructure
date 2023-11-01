@@ -1,6 +1,6 @@
-package VeriYapilari.DataStructure.Src.LinkedList;
+package Src.LinkedList;
 
-import VeriYapilari.DataStructure.Src.Model.Student;
+import Src.Model.Student;
 
 public class LinkedList {
     public Student head;
@@ -30,9 +30,8 @@ public class LinkedList {
             int i = 0;
             Student since = head;
             while (since != null) {
-                if (i == indis) {
+                if (i == indis)
                     return since.content;
-                }
                 i++;
                 since = since.next;
             }
@@ -101,21 +100,30 @@ public class LinkedList {
      * Listenin Son elemanını(kuyruk/tail)'i siler
      */
     public void DeleteElementInTail() {
-        Student since;
-        since = head;
-
-        while (since != tail) {
-            since = since.next;
-            if (since.next == tail)
-                break;
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        } else if (tail == head) {
+            tail = null;
+            head = null;
+        } else {
+            Student tmp = head;
+            while (tmp != tail) {
+                if (tmp.next == tail) {
+                    tail = tmp;
+                    tmp.next = null;
+                    break;
+                }
+                tmp = tmp.next;
+            }
         }
-        since.next = null;
-        tail = since;
+
     }
 
     /**
      * Araya Eleman ekleme işlemi.
      * eğer eleman listenin sonundaysa AddElementInTail fonksiyonu çağrılıyor.
+     * 
      * @param newStudent : Yeni Eklenecek olan Student Elemanı
      * @param oldStudent : Belirtilen elemanın referansına ekler.
      */
@@ -123,11 +131,15 @@ public class LinkedList {
         if (head == null) {
             System.out.println("List Is Empty");
         } else {
-            if (oldStudent.next == null) {
-                AddElementInTail(newStudent);
-            } else {
-                newStudent.next = oldStudent.next;
-                oldStudent.next = newStudent;
+            Student tmp = head;
+            while (tmp != null) {
+                if (tmp.content == oldStudent.content) {
+                    newStudent.next = tmp.next;
+                    tmp.next = newStudent;
+                    break;
+                } else
+                    System.out.println("Element is not found");
+                tmp = tmp.next;
             }
 
         }
@@ -140,9 +152,9 @@ public class LinkedList {
         if (head == null)
             System.out.println("List Is Empty");
         else {
-            Student after;
-            after = head.next;
-            head = after;
+            Student tmp;
+            tmp = head.next;
+            head = tmp;
         }
 
     }
@@ -155,15 +167,17 @@ public class LinkedList {
     public void DeleteElement(Student student) {
         if (head == null)
             System.out.println("List Is Empty");
-        Student now, after;
-        now = head;
-        while (now != null) {
-            if (student.content == now.next.content) {
-                after = now.next.next;
-                now.next = after;
-                break;
+        else {
+            Student now, after;
+            now = head;
+            while (now != null) {
+                if (student.content == now.next.content) {
+                    after = now.next.next;
+                    now.next = after;
+                    break;
+                }
+                now = now.next;
             }
-            now = now.next;
         }
     }
 }
