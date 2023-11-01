@@ -10,7 +10,7 @@ public class Person {
     public Person prev;
     public Person next;
 
-    public Person(int content, String name, String surname) {
+    public Person(int content) {
         this.content = content;
         next = null;
         prev = null;
